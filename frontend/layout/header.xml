@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     style="@style/ThemeOverlay.AppCompat.Dark"
     android:layout_width="match_parent"
-    tools:context=".HeaderActivity"
     android:layout_height="230dp"
     android:background="#D081351D"
     android:orientation="vertical"
