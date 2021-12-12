@@ -281,7 +281,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mFusedLocationClient.getLastLocation().addOnCompleteListener(new OnCompleteListener<Location>() {
             @Override
             public void onComplete(@NonNull Task<Location> task) {
-                if (task.isSuccessful()) {
+                if (task.isSuccessful() && task.getResult != null) {
                     Location location = task.getResult();
                     GeoPoint geoPoint = new GeoPoint(location.getLatitude(), location.getLongitude());
                     Log.d(TAG, "onComplete: Latitude: " + geoPoint.getLatitude());
@@ -292,6 +292,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     mUserLocation.setGeo_point((geoPoint));
                     mUserLocation.setTimestamp(null);
                     saveUserLocation();
+                } else {
+                    Toast.makeText(MainActivity.this, "Cannot find current location, please restart the app", Toast.LENGTH_SHORT).show();
                 }
             }
         });
