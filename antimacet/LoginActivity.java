@@ -52,6 +52,11 @@ public class LoginActivity extends AppCompatActivity {
         progressBar = findViewById(R.id.progressBar);
         changepass = findViewById(R.id.forgetpass);
         firebaseAuth = FirebaseAuth.getInstance();
+        
+        if (firebaseAuth.getCurrentUser() != null) {
+            startActivity(new Intent(getApplicationContext(),HomeActivity.class));
+            finish();
+        }
 
         mLogin.setOnClickListener(new View.OnClickListener() {
             @Override
