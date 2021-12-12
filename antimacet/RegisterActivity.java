@@ -52,11 +52,6 @@ public class RegisterActivity extends AppCompatActivity {
         fAuth = FirebaseAuth.getInstance();
         fStore = FirebaseFirestore.getInstance();
 
-        if (fAuth.getCurrentUser() != null) {
-            startActivity(new Intent(getApplicationContext(),HomeActivity.class));
-            finish();
-        }
-
         register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
