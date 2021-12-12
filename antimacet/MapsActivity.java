@@ -293,7 +293,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     mUserLocation.setTimestamp(null);
                     saveUserLocation();
                 } else {
-                    Toast.makeText(MainActivity.this, "Cannot find current location, please restart the app", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(MapsActivity.this, MapsActivity.class);
+                    startActivity(intent);
+                    finish();
                 }
             }
         });
