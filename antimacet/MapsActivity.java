@@ -94,6 +94,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     GeoApiContext mGeoApiContext;
     private ArrayList<PolylineData> mPolyLinesData = new ArrayList<>();
     BottomNavigationView navigationView2;
+    FloatingActionButton button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -107,6 +108,20 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.fragment);
         PlaceAutocompleteFragment autocompleteFragment = (PlaceAutocompleteFragment)
                 getFragmentManager().findFragmentById(R.id.place_autocomplete_fragment);
+        
+        button = findViewById(R.id.fab);
+
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (mGoogleMap.isTrafficEnabled() == false) {
+                    mGoogleMap.setTrafficEnabled(true);
+                } else {
+                    mGoogleMap.setTrafficEnabled(false);
+                }
+            }
+        });
+        
         fstore = FirebaseFirestore.getInstance();
 
         autocompleteFragment.setOnPlaceSelectedListener(new PlaceSelectionListener() {
@@ -674,7 +689,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             index++;
             Log.d(TAG, "onPolylineClick: toString: " + polylineData.toString());
             if(polyline.getId().equals(polylineData.getPolyline().getId())){
-                polylineData.getPolyline().setColor(ContextCompat.getColor(MapsActivity.this,R.color.logout));
+                polylineData.getPolyline().setColor(ContextCompat.getColor(MapsActivity.this,R.color.blue1));
                 polylineData.getPolyline().setZIndex(1);
                 Log.d(TAG, "onPolylineClick: data: " + polylineData.getLeg().endLocation);
 
