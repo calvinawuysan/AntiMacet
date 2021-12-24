@@ -58,14 +58,26 @@
                 app:labelVisibilityMode="unlabeled"
                 app:menu="@menu/btmnav" />
 
-            <fragment
+           <fragment
                 android:id="@+id/fragment"
                 android:name="com.google.android.gms.maps.SupportMapFragment"
                 android:layout_width="350dp"
                 android:layout_height="550dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="10dp"
-                tools:context=".MapsActivity" />
+                tools:context=".MapsActivity">
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/fab"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="top|left"
+                    android:layout_margin="5dp"
+                    android:backgroundTint="@color/white"
+                    android:clickable="true"
+                    android:src="@drawable/ic_baseline_traffic_24" />
+
+            </fragment>
 
 
 
