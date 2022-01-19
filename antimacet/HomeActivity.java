@@ -149,7 +149,7 @@ public class HomeActivity extends AppCompatActivity {
                     phone02.setText(value.getString("phone"));
                 }
             });
-            latestnews.setVisibility(View.VISIBLE);
+            //latestnews.setVisibility(View.VISIBLE);
         }
 
 
